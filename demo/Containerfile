@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 comfydv
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# syntax-neutral on purpose: builds with both `docker build` and `podman build`.
+# ---------- stage 1: compile dependencies, toolchain stays here ----------
+FROM docker.io/library/python:3.13-slim-trixie AS builder
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends gcc libc6-dev libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
+RUN python -m venv /opt/venv
+# Requirements are copied before the code so that a code edit keeps this layer cached.
+COPY requirements.txt .
+RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+
+# ---------- stage 2: runtime, no compiler and no headers ----------
+FROM docker.io/library/python:3.13-slim-trixie AS runtime
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PATH=/opt/venv/bin:$PATH
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends libpq5 \
+ && rm -rf /var/lib/apt/lists/*
+RUN useradd --system --uid 10001 --no-create-home app
+COPY --from=builder /opt/venv /opt/venv
+WORKDIR /app
+COPY . .
+# The key is only needed for settings import; it does not end up in the image env.
+# With no static files yet, collectstatic would not create the directory and WhiteNoise would warn.
+RUN mkdir -p staticfiles \
+ && DJANGO_SECRET_KEY=build-only python manage.py collectstatic --noinput
+USER app
+EXPOSE 8000
+# Requires `podman build --format docker`: the OCI image config has no healthcheck field.
+HEALTHCHECK --interval=10s --timeout=3s --start-period=20s --retries=3 \
+  CMD ["python", "-c", "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/healthz', timeout=2)"]
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["gunicorn", "config.wsgi:application", "--bind=0.0.0.0:8000", "--workers=2", "--worker-tmp-dir=/dev/shm", "--access-logfile=-", "--error-logfile=-"]

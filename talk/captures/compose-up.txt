@@ -1,0 +1,5 @@
+$ podman-compose ps --format "table {{.Names}}\t{{.Status}}"
+NAMES             STATUS
+djdemo_db_1       Up 18 seconds (healthy)
+djdemo_migrate_1  Exited (0) 11 seconds ago
+djdemo_web_1      Up 11 seconds (healthy)

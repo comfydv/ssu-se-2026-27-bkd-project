@@ -1,0 +1,21 @@
+{#
+SPDX-FileCopyrightText: 2026 comfydv
+
+SPDX-License-Identifier: GPL-3.0-or-later
+#}
+
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Учебные задачи</title>
+<h1>Учебные задачи</h1>
+<ul>
+{% for task in tasks %}
+  <li>{{ task.title }} —
+    {% if task.done %}выполнено{% else %}не выполнено{% endif %}
+  </li>
+{% empty %}
+  <li>Пока задач нет</li>
+{% endfor %}
+</ul>
+</html>

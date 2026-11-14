@@ -1,0 +1,57 @@
+version = 1
+
+# Files that cannot carry an in-file header: the slides read captures/ and mock/
+# verbatim with read(), images are binary or third-party.
+# Everything else has SPDX headers inside the file.
+
+[[annotations]]
+path = ["talk/captures/**", "talk/mock/**"]
+SPDX-FileCopyrightText = "2026 comfydv"
+SPDX-License-Identifier = "CC0-1.0"
+
+# Same as their in-file headers. reuse sniffs the encoding from the first 2048 bytes and
+# treats the file as binary when that cut splits a Cyrillic character.
+[[annotations]]
+path = ["README.md", "talk/slides.typ", "talk/speech.typ"]
+SPDX-FileCopyrightText = "2026 comfydv"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "talk/img/credits.json"
+SPDX-FileCopyrightText = "2026 comfydv"
+SPDX-License-Identifier = "CC0-1.0"
+
+# https://commons.wikimedia.org/wiki/File:Container_ship_being_towed_in_the_Scheldt_towards_the_Port_of_Antwerp,_seen_from_Doel,_Belgium_(DSCF3880).jpg
+# Downscaled from 4878x3181 to 1920x1252.
+[[annotations]]
+path = "talk/img/container-ship.jpg"
+SPDX-FileCopyrightText = "Trougnouf"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# https://commons.wikimedia.org/wiki/File:Git-logo.svg
+[[annotations]]
+path = "talk/img/git-logo.svg"
+SPDX-FileCopyrightText = "Jason Long"
+SPDX-License-Identifier = "CC-BY-3.0"
+
+# https://commons.wikimedia.org/wiki/File:SQLite370.svg
+# https://commons.wikimedia.org/wiki/File:Systemd-logo.svg
+[[annotations]]
+path = ["talk/img/sqlite-logo.svg", "talk/img/systemd-logo.svg"]
+SPDX-FileCopyrightText = ["D. Richard Hipp, SVG by Mike Toews", "Tobias Bernard"]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+
+# https://github.com/containers/podman/tree/main/logo (repository licence: Apache-2.0)
+# https://commons.wikimedia.org/wiki/File:Podman-logo-orig.png
+# podman-logo.svg is logo/podman-logo-source.svg unchanged; podman-icon.svg is a crop of it.
+[[annotations]]
+path = ["talk/img/podman-logo.svg", "talk/img/podman-icon.svg"]
+SPDX-FileCopyrightText = "The Podman Authors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg
+# 2013 logo from the docker/docker repository (Apache-2.0); docker-icon.svg is a crop of it.
+[[annotations]]
+path = ["talk/img/docker-logo.svg", "talk/img/docker-icon.svg"]
+SPDX-FileCopyrightText = "dotCloud, Inc."
+SPDX-License-Identifier = "Apache-2.0"

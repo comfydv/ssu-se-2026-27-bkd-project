@@ -1,0 +1,6 @@
+$ podman build --no-cache -t localhost/djdemo:oci . 2>&1 | rg -m1 -o "HEALTHCHECK is not supported.*format"
+HEALTHCHECK is not supported for OCI image format and will be ignored. Must use `docker` format
+$ podman image inspect --format "{{if .HealthCheck}}healthcheck: yes{{else}}healthcheck: no{{end}}" localhost/djdemo:oci
+healthcheck: no
+$ podman image inspect --format "{{if .HealthCheck}}healthcheck: yes{{else}}healthcheck: no{{end}}" localhost/djdemo:multi
+healthcheck: yes

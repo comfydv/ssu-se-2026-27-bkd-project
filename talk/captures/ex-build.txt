@@ -1,0 +1,4 @@
+$ podman build -t django-demo:1 . | tail -n 1
+0c9dbff76b04a4c2ffc3b4b26cfc51032598f32fc23c2255c23f15d1c40ac58d
+$ podman volume create django_data
+django_data

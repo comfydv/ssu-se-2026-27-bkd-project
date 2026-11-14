@@ -1,0 +1,7 @@
+$ ps -o pid,ppid,comm -p 2783,87025,87027
+    PID    PPID COMMAND
+   2783       1 systemd
+  87025    2783 conmon
+  87027   87025 gunicorn
+$ pgrep -a dockerd || echo "no dockerd"
+no dockerd

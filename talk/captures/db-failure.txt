@@ -1,0 +1,12 @@
+$ podman-compose stop db > /dev/null 2>&1
+$ curl -s -w " %{http_code}\n" http://127.0.0.1:8000/healthz
+{"status": "ok"} 200
+$ curl -s -w " %{http_code}\n" http://127.0.0.1:8000/readyz
+{"status": "unavailable"} 503
+$ podman-compose ps --format "table {{.Names}}\t{{.Status}}"
+NAMES             STATUS
+djdemo_db_1       Exited (0) 29 seconds ago (healthy)
+djdemo_migrate_1  Exited (0) About a minute ago
+djdemo_web_1      Up About a minute (unhealthy)
+$ podman inspect --format "{{.RestartCount}}" djdemo_web_1
+0

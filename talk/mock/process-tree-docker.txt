@@ -1,0 +1,7 @@
+$ ps -o pid,ppid,comm -p 1,912,1037,3410,3432
+    PID    PPID COMMAND
+      1       0 systemd
+    912       1 containerd
+   1037       1 dockerd
+   3410       1 containerd-shim
+   3432    3410 gunicorn

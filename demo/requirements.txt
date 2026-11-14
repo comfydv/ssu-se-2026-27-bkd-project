@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: NONE
+#
+# SPDX-License-Identifier: CC0-1.0
+
+Django>=5.2,<5.3
+gunicorn>=23,<24
+psycopg[c]>=3.2,<4
+whitenoise>=6.9,<7

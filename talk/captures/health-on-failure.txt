@@ -1,0 +1,10 @@
+$ podman run -d --name hof-demo --health-cmd false --health-interval 2s --health-retries 1 --health-on-failure restart docker.io/library/python:3.13-slim-trixie sleep infinity > /dev/null
+$ podman events --since 1m --stream=false --filter container=hof-demo --format "{{.Status}} {{.HealthStatus}}" | rg -v "^(exec|exec_died|cleanup|init|died) " | head -n 8
+create 
+start 
+health_status unhealthy
+restart 
+start 
+health_status unhealthy
+$ podman inspect --format "{{.RestartCount}}" hof-demo
+1

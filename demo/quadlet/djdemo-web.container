@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 comfydv
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[Unit]
+Description=djdemo web server
+Requires=djdemo-db.service
+After=djdemo-db.service
+
+[Container]
+Image=localhost/djdemo:latest
+PublishPort=127.0.0.1:8000:8000
+EnvironmentFile=%h/djdemo/.env
+AutoUpdate=local
+
+[Service]
+Restart=always
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

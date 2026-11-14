@@ -1,0 +1,5 @@
+$ podman logs djdemo_web_1 2>&1 | rg -v readyz | tail -n 4
+INFO notes.views visit recorded, total=5
+10.89.3.5 - - [13/Nov/2026:07:36:04 -0600] "GET / HTTP/1.1" 200 42 "-" "curl/8.23.0"
+INFO notes.views visit recorded, total=6
+10.89.3.5 - - [13/Nov/2026:07:36:04 -0600] "GET / HTTP/1.1" 200 42 "-" "curl/8.23.0"

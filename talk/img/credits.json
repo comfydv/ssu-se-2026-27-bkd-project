@@ -1,0 +1,43 @@
+[
+ {
+  "file": "git-logo.svg",
+  "title": "File:Git-logo.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Git-logo.svg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Jason Long"
+ },
+ {
+  "file": "sqlite-logo.svg",
+  "title": "File:SQLite370.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:SQLite370.svg",
+  "license": "Public domain",
+  "license_url": null,
+  "artist": "Part of the SQLite documentation, which has been released by author D. Richard Hipp to the public domain. SVG conversion by Mike Toews."
+ },
+ {
+  "file": "systemd-logo.svg",
+  "title": "File:Systemd-logo.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Systemd-logo.svg",
+  "license": "Public domain",
+  "license_url": null,
+  "artist": "Tobias Bernard"
+ },
+ {
+  "file": "container-ship.jpg",
+  "title": "File:Container ship being towed in the Scheldt towards the Port of Antwerp, seen from Doel, Belgium (DSCF3880).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Container_ship_being_towed_in_the_Scheldt_towards_the_Port_of_Antwerp,_seen_from_Doel,_Belgium_(DSCF3880).jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Trougnouf",
+  "note": "downscaled from 4878x3181 to 1920x1252"
+ },
+ {
+  "file": "docker-logo.svg",
+  "title": "File:Docker (container engine) logo.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo.svg",
+  "license": "Apache-2.0",
+  "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+  "artist": "dotCloud, Inc. (2013 logo; docker-icon.svg is a crop of it)"
+ }
+]

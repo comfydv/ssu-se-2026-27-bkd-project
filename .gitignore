@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: NONE
+#
+# SPDX-License-Identifier: CC0-1.0
+
+__pycache__/
+
+# Built PDFs are published as release assets, not committed
+talk/*.pdf
+talk/out/

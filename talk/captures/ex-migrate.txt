@@ -1,0 +1,4 @@
+$ podman run --rm -v django_data:/data django-demo:1 python manage.py migrate | rg "Apply all|Running|tasks"
+  Apply all migrations: admin, auth, contenttypes, sessions, tasks
+Running migrations:
+  Applying tasks.0001_initial... OK

@@ -1,0 +1,4 @@
+$ podman stop django_site > /dev/null
+$ podman run -d --rm --name django_site -p 127.0.0.1:8000:8000 -v django_data:/data django-demo:1 > /dev/null
+$ curl -s http://127.0.0.1:8000/ | tr -s " \n" " " | rg -o "<li>[^<]*</li>"
+<li>Docker — не выполнено </li>

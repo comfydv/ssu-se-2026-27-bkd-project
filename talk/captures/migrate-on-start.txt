@@ -1,0 +1,6 @@
+$ podman run --rm --network djdemo_default --env-file .env -e DJANGO_MIGRATE_ON_START=1 localhost/djdemo:latest echo "server would start here"
+Operations to perform:
+  Apply all migrations: contenttypes, notes
+Running migrations:
+  No migrations to apply.
+server would start here

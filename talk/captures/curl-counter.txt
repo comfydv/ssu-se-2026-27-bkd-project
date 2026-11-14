@@ -1,0 +1,6 @@
+$ curl -s http://127.0.0.1:8000/; echo
+{"visits": 1, "container": "929614ff5eba"}
+$ curl -s http://127.0.0.1:8000/; echo
+{"visits": 2, "container": "929614ff5eba"}
+$ curl -s http://127.0.0.1:8000/; echo
+{"visits": 3, "container": "929614ff5eba"}

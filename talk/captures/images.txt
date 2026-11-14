@@ -1,0 +1,8 @@
+$ podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}" | rg "TAG|djdemo:(naive|multi)"
+REPOSITORY:TAG                             SIZE
+localhost/djdemo:naive                     411 MB
+localhost/djdemo:multi                     186 MB
+$ podman run --rm --entrypoint sh localhost/djdemo:naive -c "command -v gcc"
+/usr/bin/gcc
+$ podman run --rm --entrypoint sh localhost/djdemo:multi -c "command -v gcc || echo no gcc"
+no gcc

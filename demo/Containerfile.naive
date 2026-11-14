@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 comfydv
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Anti-example for the talk: one stage, toolchain shipped to production, runs as root.
+# Same base image and apt cleanup as Containerfile, so the size difference comes from the stages alone.
+FROM docker.io/library/python:3.13-slim-trixie
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends gcc libc6-dev libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD python manage.py migrate --noinput && gunicorn config.wsgi:application --bind=0.0.0.0:8000

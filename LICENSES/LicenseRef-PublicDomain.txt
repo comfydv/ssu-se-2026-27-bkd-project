@@ -1,0 +1,4 @@
+This file is in the public domain according to its source page on
+Wikimedia Commons (see the URL next to its entry in REUSE.toml).
+No copyright licence is required to use it. Trademark rights, if any,
+remain with their owners.
